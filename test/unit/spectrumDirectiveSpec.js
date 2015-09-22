@@ -39,6 +39,7 @@ describe('SpectrumDirective', function() {
 
       // set value within the colorpicker
       $('input.sp-input').val('#0000ff').trigger('change');
+      $rootScope.$digest();
 
       // scope should have been changed!
       expect($rootScope.targetColor).toBe('#0000ff');
@@ -190,6 +191,7 @@ describe('SpectrumDirective', function() {
 
       d.elm.find('input').spectrum('show');
       $('.sp-cancel').click();
+      $rootScope.$digest();
       expect($rootScope.targetColor).toBe(null);
     });
 
@@ -208,6 +210,7 @@ describe('SpectrumDirective', function() {
 
       d.elm.find('input').spectrum('show');
       $('.sp-cancel').click();
+      $rootScope.$digest();
       expect($rootScope.targetColor).toBe(fallback);
     });
 
@@ -221,6 +224,7 @@ describe('SpectrumDirective', function() {
 
       // set value to an rgba-color
       $('input.sp-input').val('rgba(255, 0, 0, 0.6)').trigger('change');
+      $rootScope.$digest();
 
       // since format is set to hex, we should still get hex back, not rgba
       expect($rootScope.targetColor.toString()).toBe('#ff0000');
@@ -236,6 +240,7 @@ describe('SpectrumDirective', function() {
 
       // set value to an hsv-color
       $('input.sp-input').val('hsv(0, 100%, 100%)').trigger('change');
+      $rootScope.$digest();
       // since format is now set to an evaluated value of rgb, we should now get rgb back
       expect($rootScope.targetColor.toString()).toBe('rgb(255, 0, 0)');
     });
@@ -255,6 +260,7 @@ describe('SpectrumDirective', function() {
 
       for (var i = 0; i < formats.length; i++) {
         $('input.sp-input').val(formats[i]).trigger('change');
+        $rootScope.$digest();
         expect($rootScope.targetColor.toString()).toBe(formats[i]);
       }
     });
@@ -284,6 +290,7 @@ describe('SpectrumDirective', function() {
       });
       
       $('input.sp-input').val(color).trigger('change');
+      $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
 	
@@ -307,6 +314,7 @@ describe('SpectrumDirective', function() {
       });
       
       $('input.sp-input').val(color).trigger('change');
+      $rootScope.$digest();
       expect($rootScope.targetColor).not.toHaveBeenCalledWith(color);
     });
 
@@ -328,6 +336,7 @@ describe('SpectrumDirective', function() {
 		'options' : 'options'
       });
       d.elm.find('input').spectrum('show');
+      $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
 	
@@ -373,7 +382,9 @@ describe('SpectrumDirective', function() {
       });
 	  
       d.elm.find('input').spectrum('show');
+      $rootScope.$digest();
       d.elm.find('input').spectrum('hide');
+      $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
 	
@@ -422,6 +433,7 @@ describe('SpectrumDirective', function() {
 	  
       d.elm.find('input').spectrum('show');
       $(document).find('.sp-clear').click();
+      $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
 	
@@ -446,6 +458,7 @@ describe('SpectrumDirective', function() {
       });
 	  d.elm.find('input').spectrum('show');
       $(document).find('.sp-clear').click();
+      $rootScope.$digest();
       expect($rootScope.targetColor).not.toHaveBeenCalledWith(color);
     });
 	
@@ -511,6 +524,7 @@ describe('SpectrumDirective', function() {
       });
       d.elm.find('input').spectrum('show');
       $(document).find('.sp-clear').click();
+      $rootScope.$digest();
       expect($rootScope.eventSpy).toHaveBeenCalled();
     });
 
