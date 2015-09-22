@@ -57,7 +57,7 @@
         }
 
         var onChange = function(color) {
-          $scope.$apply(function() {
+          $scope.$evalAsync(function() {
             setViewValue(color);
           });
         };
