@@ -86,7 +86,7 @@ describe('SpectrumDirective', function() {
         'options': 'options'
       });
       expect(d.elm.find('input').attr('disabled')).toBe('disabled');
-    });	
+    });
 
     describe('trigger handler', function() {
       var $label;
@@ -149,11 +149,11 @@ describe('SpectrumDirective', function() {
       expect($('.sp-container').length).toBe(1);
      d.elm.trigger('$destroy');
       expect($('.sp-container').length).toBe(0);
-    });	
-	
+    });
+
 	it('should set palette via evaluated value', function() {
       var input = ['#FFF', '#000'], output = ['rgb(255, 255, 255)', 'rgb(0, 0, 0)'];
-      $rootScope.palette = [input];      
+      $rootScope.palette = [input];
 	  $rootScope.options = {
         showPalette: true
       };
@@ -163,20 +163,20 @@ describe('SpectrumDirective', function() {
 		'options': 'options'
       });
 
-      $('.sp-palette .sp-thumb-el').each(function(index, el){ 
+      $('.sp-palette .sp-thumb-el').each(function(index, el){
 			expect($(el).html()).toContain(output[index]);
-	  });	  
+	  });
 	  expect($('.sp-palette .sp-thumb-el').length).toBe(2);
-	  
+
 		it('should update palette via evaluated value', function() {
 		  var input = ['#000'], output = ['rgb(0, 0, 0)'];
-		  $rootScope.palette = [input];  
+		  $rootScope.palette = [input];
 		  $rootScope.digest();
-		  $('.sp-palette .sp-thumb-el').each(function(index, el){ 
+		  $('.sp-palette .sp-thumb-el').each(function(index, el){
 				expect($(el).html()).toContain(output[index]);
-		  });	  
+		  });
 		  expect($('.sp-palette .sp-thumb-el').length).toBe(1);
-		});	  
+		});
     });
 
     it('should cope with falsy color values', function() {
@@ -270,7 +270,7 @@ describe('SpectrumDirective', function() {
     beforeEach(function() {
       initGlobals();
     });
-	
+
 	it('should propagate change to color on change', function() {
 	  var color = '#FFF';
 	  $rootScope.targetColor = jasmine.createSpy('targetColor');
@@ -280,7 +280,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -288,12 +288,12 @@ describe('SpectrumDirective', function() {
         'ng-model-options': '{ getterSetter : true }',
 		'options' : 'options'
       });
-      
+
       $('input.sp-input').val(color).trigger('change');
       $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
-	
+
 	it('should not propagate change to color on change with update option set to false', function() {
 	  var color = '#FFF';
 	  $rootScope.targetColor = jasmine.createSpy('targetColor');
@@ -303,7 +303,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -312,7 +312,7 @@ describe('SpectrumDirective', function() {
 		'on-change-options' : '{ update : false }',
 		'options' : 'options'
       });
-      
+
       $('input.sp-input').val(color).trigger('change');
       $rootScope.$digest();
       expect($rootScope.targetColor).not.toHaveBeenCalledWith(color);
@@ -327,7 +327,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -339,7 +339,7 @@ describe('SpectrumDirective', function() {
       $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
-	
+
 	it('should not propagate change to color on show with update option set to false', function() {
 	  var color = '#FFF';
 	  $rootScope.targetColor = jasmine.createSpy('targetColor');
@@ -349,7 +349,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -361,7 +361,7 @@ describe('SpectrumDirective', function() {
       d.elm.find('input').spectrum('show');
       expect($rootScope.targetColor).not.toHaveBeenCalledWith(color);
     });
-	
+
 	it('should propagate change to color on hide', function() {
 	  var color = '#FFF';
 	  $rootScope.targetColor = jasmine.createSpy('targetColor');
@@ -371,7 +371,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -380,14 +380,14 @@ describe('SpectrumDirective', function() {
 		'on-show-options' : '{ update : false }',
 		'options' : 'options'
       });
-	  
+
       d.elm.find('input').spectrum('show');
       $rootScope.$digest();
       d.elm.find('input').spectrum('hide');
       $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
-	
+
 	it('should not propagate change to color on hide with update option set to false', function() {
 	  var color = '#FFF';
 	  $rootScope.targetColor = jasmine.createSpy('targetColor');
@@ -397,7 +397,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -411,7 +411,7 @@ describe('SpectrumDirective', function() {
       d.elm.find('input').spectrum('hide');
       expect($rootScope.targetColor).not.toHaveBeenCalledWith(color);
     });
-	
+
 	it('should propagate change to color on move', function() {
 	  var color = '#FFF';
 	  $rootScope.targetColor = jasmine.createSpy('targetColor');
@@ -421,7 +421,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -430,13 +430,13 @@ describe('SpectrumDirective', function() {
 		'on-show-options' : '{ update : false }',
 		'options' : 'options'
       });
-	  
+
       d.elm.find('input').spectrum('show');
       $(document).find('.sp-clear').click();
       $rootScope.$digest();
       expect($rootScope.targetColor).toHaveBeenCalledWith(color);
     });
-	
+
 	it('should not propagate change to color on move with update option set to false', function() {
 	  var color = '#FFF';
 	  $rootScope.targetColor = jasmine.createSpy('targetColor');
@@ -446,7 +446,7 @@ describe('SpectrumDirective', function() {
 		  }
 		  return color;
 	  });
-	  $rootScope.options = {		  
+	  $rootScope.options = {
             showPalette: true
 	  };
       var d = createDirective({
@@ -461,7 +461,7 @@ describe('SpectrumDirective', function() {
       $rootScope.$digest();
       expect($rootScope.targetColor).not.toHaveBeenCalledWith(color);
     });
-	
+
     it('should correctly emit change event', function() {
       $rootScope.eventSpy = jasmine.createSpy('change');
       var d = createDirective({
@@ -472,7 +472,7 @@ describe('SpectrumDirective', function() {
       $rootScope.targetColor = 'blue';
       expect($rootScope.eventSpy).toHaveBeenCalled();
     });
-	
+
 	it('should correctly emit show event', function() {
       $rootScope.eventSpy = jasmine.createSpy('show');
       var d = createDirective({
