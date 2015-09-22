@@ -14,14 +14,15 @@
   <label for="disabled">Disabled:</label><input type="checkbox" id="disabled" ng-model="disabled">
 
   <spectrum-colorpicker
-  ng-model="color"
-  format="'hex'"
-  disabled="disabled"
-  options="{
-    flat: true,
-    showInput: true,
-    showAlpha: true
-  }">
+    ng-model="color"
+    format="'hex'"
+    disabled="disabled"
+    options="{
+      flat: false,
+      showInput: true,
+      showAlpha: true,
+      showPalette: true
+    }">
   </spectrum-colorpicker>
 
   <!-- [[src/js]] -->
