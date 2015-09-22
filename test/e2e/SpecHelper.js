@@ -3,7 +3,6 @@ var port = process.env.E2E_SANDBOX_PORT || 8765;
 var sandboxUrl = 'http://localhost:' + port + '/';
 
 global.By = protractor.By;
-global.ptor = protractor.getInstance();
 
 beforeEach(function() {
   browser.get(sandboxUrl);
@@ -11,7 +10,7 @@ beforeEach(function() {
 
 var colorpicker = {
   chooseColorAtPoint: function(x, y) {
-    global.ptor.actions()
+    browser.actions()
       .mouseMove(element(protractor.By.css('.sp-val')), {x: x, y: y })
       .mouseDown()
       .perform();
