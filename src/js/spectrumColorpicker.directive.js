@@ -142,7 +142,7 @@
 
 		$scope.$watch('palette', function (palette) {
 		  $input.spectrum('option', 'palette', palette);
-		});
+		}, true);
       }
     };
   });
