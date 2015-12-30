@@ -167,17 +167,27 @@ describe('SpectrumDirective', function() {
 			expect($(el).html()).toContain(output[index]);
 	  });
 	  expect($('.sp-palette .sp-thumb-el').length).toBe(2);
-
-		it('should update palette via evaluated value', function() {
-		  var input = ['#000'], output = ['rgb(0, 0, 0)'];
-		  $rootScope.palette = [input];
-		  $rootScope.digest();
-		  $('.sp-palette .sp-thumb-el').each(function(index, el){
-				expect($(el).html()).toContain(output[index]);
-		  });
-		  expect($('.sp-palette .sp-thumb-el').length).toBe(1);
-		});
     });
+    
+	it('should update palette via evaluated value', function() {
+      $rootScope.palette = ['#FFF', '#000'];
+  	  $rootScope.options = {
+        showPalette: true
+      };
+      var d = createDirective({
+        'ng-model': 'targetColor',
+        'palette': 'palette',
+        'options': 'options'
+      });
+      
+	  var input = ['#000'], output = ['rgb(0, 0, 0)'];
+	  $rootScope.palette = [input];
+	  $rootScope.$digest();
+	  $('.sp-palette .sp-thumb-el').each(function(index, el){
+			expect($(el).html()).toContain(output[index]);
+	  });
+	  expect($('.sp-palette .sp-thumb-el').length).toBe(1);
+	});
 
     it('should cope with falsy color values', function() {
       $rootScope.targetColor = false;
