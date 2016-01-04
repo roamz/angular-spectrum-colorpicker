@@ -6,26 +6,27 @@
   "homepage": "https://github.com/Jimdo/angular-spectrum-colorpicker",
   "author": "Jimdo GmbH",
   "maintainers": [
-    "Joscha Feth <joscha@feth.com>"
+    "Joscha Feth <joscha@feth.com>",
+    "Hannes Diercks <hannes.diercks@jimdo.com>"
   ],
   "contributors": [
-    "Hannes Diercks <hannes.diercks@jimdo.com>",
     "Hendrike Heydenreich <hendrike@jimdo.com>",
     "Sasha Mile Rudan <mprinc@gmail.com>",
     "Christian Meyer <christian.meyer@jimdo.com>",
-    "Hauke Stange <hauke@jimdo.com>",
     "luto <m@luto.at>",
+    "Hauke Stange <hauke@jimdo.com>",
+    "tkrym <tomasz.krym@kodegenix.pl>",
     "Dorian Manning <dmnn@users.noreply.github.com>",
+    "Fernando Pasik <fernando@pasik.com.ar>",
+    "Jorick van Hees <j.vanhees@bluebillywig.com>",
     "asilberschneider <asilberschneider@users.noreply.github.com>",
     "christian-meyer-jimdo <christian.meyer@jimdo.com>",
-    "Fernando Pasik <fernando@pasik.com.ar>",
-    "tkrym <tomasz.krym@kodegenix.pl>",
-    "Denis Dervisevic <dervisevic@textalk.se>",
+    "Robbie Trencheny <me@robbiet.us>",
     "Erik Dykema <erik@caserails.com>",
     "Elan Perach <elanperach@gmail.com>",
+    "Denis Dervisevic <dervisevic@textalk.se>",
     "Lasse Diercks <lasse@jimdo.com>",
-    "Matthew Davies <daviesgeek@users.noreply.github.com>",
-    "Robbie Trencheny <me@robbiet.us>"
+    "Matthew Davies <daviesgeek@users.noreply.github.com>"
   ],
   "main": "dist/angular-spectrum-colorpicker.min.js",
   "keywords": [
