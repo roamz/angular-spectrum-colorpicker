@@ -1,11 +1,11 @@
 /*!
- * angular-spectrum-colorpicker v1.4.2
+ * angular-spectrum-colorpicker v1.4.3
  * https://github.com/Jimdo/angular-spectrum-colorpicker
  *
  * Angular directive for a colorpicker, that bases on http://bgrins.github.io/spectrum/
  * Idea from http://jsfiddle.net/g/LAJCa/
  *
- * Copyright 2015, Jimdo GmbH
+ * Copyright 2016, Jimdo GmbH
  * Released under the MIT license
  */
 (function(angular, undefined) {
@@ -159,7 +159,7 @@
   
   		$scope.$watch('palette', function (palette) {
   		  $input.spectrum('option', 'palette', palette);
-  		});
+  		}, true);
         }
       };
     });
