@@ -28,7 +28,7 @@
     "Lasse Diercks <lasse@jimdo.com>",
     "Matthew Davies <daviesgeek@users.noreply.github.com>"
   ],
-  "main": "dist/angular-spectrum-colorpicker.min.js",
+  "main": "dist/angular-spectrum-colorpicker.js",
   "keywords": [
     "directive",
     "angular",
