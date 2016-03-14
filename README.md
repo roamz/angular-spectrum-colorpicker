@@ -28,6 +28,12 @@ Dependencies
  * [AngularJs](http://angularjs.org/)
  * [Spectrum](http://bgrins.github.io/spectrum/)
 
+Installation
+------------
+
+```
+bower install angular-spectrum-colorpicker
+```
 
 Usage
 -----
