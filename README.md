@@ -104,7 +104,7 @@ Initialize the source project
 -----------------------------
 
 ```shell
-npm install
+npm install && npm run setup
 ```
 
 
